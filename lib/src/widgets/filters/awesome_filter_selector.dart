@@ -1,6 +1,6 @@
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:flutter/services.dart';
 
 class AwesomeFilterSelector extends StatefulWidget {
@@ -28,8 +28,7 @@ class _AwesomeFilterSelectorState extends State<AwesomeFilterSelector> {
   int? _textureId;
   int _selected = 0;
 
-  List<String> get presetsIds =>
-      widget.state.availableFilters!.map((e) => e.id).toList();
+  List<String> get presetsIds => widget.state.availableFilters!.map((e) => e.id).toList();
 
   @override
   void initState() {
@@ -112,9 +111,7 @@ class _AwesomeFilterSelectorState extends State<AwesomeFilterSelector> {
       ),
     ];
     return Column(
-      children: widget.filterListPosition == FilterListPosition.belowButton
-          ? children
-          : children.reversed.toList(),
+      children: widget.filterListPosition == FilterListPosition.belowButton ? children : children.reversed.toList(),
     );
   }
 }
